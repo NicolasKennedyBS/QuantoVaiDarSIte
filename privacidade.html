@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade — QuantoVaiDar?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4C86D9;
+            --primary-dark: #2c5ba3;
+            --accent: #F59E0B;
+            --bg-app: #F5F7FA; 
+            --surface: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-app);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* --- NAVBAR SIMPLIFICADA --- */
+        .navbar-container {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            padding: 0 20px;
+        }
+        .navbar-floating {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 100px;
+            padding: 10px 32px; 
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .navbar-brand-img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        /* --- CONTEÚDO LEGAL --- */
+        .legal-header {
+            padding: 160px 0 60px;
+            text-align: center;
+        }
+        .legal-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+        .legal-update {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+            background: rgba(76, 134, 217, 0.1);
+            padding: 6px 16px;
+            border-radius: 100px;
+            display: inline-block;
+        }
+
+        .legal-document {
+            background: var(--surface);
+            max-width: 900px;
+            margin: 0 auto 100px;
+            padding: 60px 80px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.03);
+            text-align: justify;
+        }
+
+        .legal-document h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 12px;
+            text-align: left;
+        }
+        .legal-document h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            text-align: left;
+        }
+        .legal-document p, .legal-document li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .legal-document ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+        .legal-document li::marker {
+            color: var(--primary);
+        }
+        .legal-document strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--surface);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-title-img {
+            width: 160px; 
+            height: auto;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .legal-document {
+                padding: 40px 24px;
+                margin: 0 16px 80px;
+                border-radius: 16px;
+                text-align: left;
+            }
+            .legal-title { font-size: 2.2rem; }
+            .navbar-floating { padding: 12px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-container">
+    <nav class="navbar navbar-expand-lg navbar-floating">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand p-0" href="index.html">
+                <img src="assets/img/quantovaidartittle.png" alt="QuantoVaiDar?" class="navbar-brand-img">
+            </a>
+            <a href="index.html" class="text-decoration-none fw-bold" style="color: var(--text-muted); font-size: 0.95rem;">
+                <i class="bi bi-arrow-left me-2"></i> Voltar ao site
+            </a>
+        </div>
+    </nav>
+</div>
+
+<header class="legal-header container">
+    <span class="legal-update">Última atualização: 18 de Fevereiro de 2026</span>
+    <h1 class="legal-title mt-4">Política de Privacidade de Dados</h1>
+    <p class="text-muted fs-5">Diretrizes legais, governança de informações e conformidade com a LGPD.</p>
+</header>
+
+<main class="container">
+    <article class="legal-document">
+        
+        <p>A presente <strong>Política de Privacidade</strong> regula o tratamento de dados pessoais realizado pelo sistema <strong>QuantoVaiDar?</strong> (denominado "Aplicativo", "Plataforma" ou "Nós"), seja através de sua versão Web (Navegadores) ou de seus aplicativos nativos para dispositivos móveis (Android e iOS). Nosso compromisso é respeitar sua privacidade e garantir o sigilo absoluto das informações que você nos confia, em estrita conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>, o <strong>Marco Civil da Internet (Lei nº 12.965/2014)</strong> e as políticas globais de privacidade das lojas de aplicativos (Google Play Store e Apple App Store).</p>
+
+        <p>Ao se cadastrar, acessar ou utilizar qualquer serviço do QuantoVaiDar?, o Usuário declara ter lido, compreendido e aceito expressamente todas as disposições desta Política.</p>
+
+        <h2>1. Natureza do Serviço e Isenção Financeira</h2>
+        <p>Declaramos para todos os fins de direito que o <strong>QuantoVaiDar? não é uma instituição financeira, arranjo de pagamento, subadquirente, carteira digital ou intermediador de transações de qualquer natureza</strong>. A Plataforma opera unicamente como um software utilitário de produtividade focado na geração e formatação de documentos (arquivos PDF) e na facilitação da exibição de códigos do Banco Central do Brasil (QR Codes de PIX Dinâmico e Copia-e-Cola). Não processamos transações bancárias, não realizamos retenção de valores (split de pagamentos), não cobramos taxas percentuais sobre vendas e não possuímos qualquer ingerência, responsabilidade ou acesso sobre as transferências financeiras realizadas entre o Usuário e seus respectivos clientes finais.</p>
+
+        <h2>2. Dados Coletados e Forma de Coleta</h2>
+        <p>Para prover nossos serviços, coletamos as informações estritamente necessárias. A coleta ocorre nas seguintes modalidades:</p>
+
+        <h3>2.1. Dados fornecidos diretamente pelo Usuário</h3>
+        <ul>
+            <li><strong>Dados de Identificação e Contato:</strong> Nome completo, endereço de e-mail e credenciais de acesso (senha criptografada).</li>
+            <li><strong>Dados de Configuração Comercial (Perfil):</strong> Nome fantasia comercial e Chave PIX padrão (utilizada unicamente para a geração técnica da string do QR Code, sem acesso à conta bancária).</li>
+            <li><strong>Dados de Operação (Transacionais):</strong> Dados preenchidos voluntariamente pelo Usuário ao gerar um recibo, incluindo: nomes dos seus clientes, descrições de serviços ou produtos, unidades de medida e valores monetários das cobranças.</li>
+        </ul>
+
+        <h3>2.2. Dados coletados automaticamente (Logs e Dispositivo)</h3>
+        <ul>
+            <li><strong>Dados de Dispositivo:</strong> Modelo do aparelho, sistema operacional (versão do Android/iOS/Windows), fuso horário e idioma, essenciais para a responsividade e renderização correta da interface (Flutter).</li>
+            <li><strong>Registros de Acesso (Logs):</strong> Endereços de IP (Internet Protocol), datas e horários de login, em estrito cumprimento ao Artigo 15 do Marco Civil da Internet.</li>
+        </ul>
+
+        <h2>3. Permissões de Dispositivo Solicitadas (Aplicativo Mobile)</h2>
+        <p>Em conformidade com as diretrizes de transparência do Google Play e da Apple App Store, detalhamos as permissões solicitadas pelo aplicativo nativo no seu dispositivo:</p>
+        <ul>
+            <li><strong>Acesso ao Armazenamento / Arquivos Locais (Storage):</strong> Permissão técnica estritamente necessária para que o aplicativo possa gravar o arquivo <code>.PDF</code> do recibo gerado no disco local do aparelho, permitindo que o Usuário o abra, visualize ou compartilhe em outros aplicativos (ex: WhatsApp, E-mail). <em>Não vasculhamos, não lemos e não realizamos upload de nenhum arquivo ou foto pessoal do seu aparelho.</em></li>
+            <li><strong>Acesso à Rede (Internet):</strong> Necessário para a comunicação segura com a nossa API (Application Programming Interface), validação de credenciais, sincronização de banco de dados em nuvem e disparo de e-mails transacionais (tokens de segurança).</li>
+        </ul>
+
+        <h2>4. Bases Legais e Finalidades do Tratamento de Dados (LGPD)</h2>
+        <p>Nós tratamos seus dados sob as seguintes bases legais estabelecidas pelo Artigo 7º da LGPD:</p>
+        <ul>
+            <li><strong>Execução de Contrato (Art. 7º, V):</strong> Utilizamos seus dados de perfil e operação para prestar o serviço central do aplicativo, ou seja, gerar os recibos, criar os QR Codes, autenticar seu acesso e armazenar seu histórico.</li>
+            <li><strong>Cumprimento de Obrigação Legal (Art. 7º, II):</strong> Armazenamento de logs de acesso (IP, data e hora) por no mínimo 6 (seis) meses, conforme exigência do Marco Civil da Internet.</li>
+            <li><strong>Legítimo Interesse (Art. 7º, IX):</strong> Para envio de comunicações puramente técnicas (como alterações nesta política, indisponibilidade do sistema ou atualizações críticas de segurança).</li>
+        </ul>
+
+        <h2>5. Criptografia e Segurança da Informação</h2>
+        <p>A Plataforma emprega as mais modernas práticas de engenharia de software para garantir a inviolabilidade dos seus dados corporativos e financeiros:</p>
+        <ul>
+            <li><strong>Anonimização de Senhas:</strong> Empregamos o algoritmo de criptografia unidirecional <strong>SHA-256</strong>. Sua senha nunca trafega ou é armazenada em texto limpo (plain text). Em caso de vazamento improvável de banco de dados, senhas não poderão ser revertidas, protegendo suas contas em outros serviços.</li>
+            <li><strong>Criptografia de Chaves PIX:</strong> Por considerarmos chaves PIX (como CPF ou números de celular) dados de alta sensibilidade, aplicamos criptografia simétrica de nível bancário <strong>AES/ECB/PKCS5Padding</strong> na camada de Back-end (Java/Spring Boot). As chaves são armazenadas criptografadas no banco de dados e descriptografadas apenas em memória volátil durante a emissão do PDF.</li>
+            <li><strong>Transmissão Segura:</strong> 100% da troca de dados entre o aplicativo (cliente) e os servidores ocorre através de túneis criptografados com protocolo HTTPS (TLS/SSL).</li>
+            <li><strong>Sessões Efêmeras:</strong> Processos de criação de conta e recuperação de senhas (esqueci minha senha) utilizam tokens numéricos randômicos válidos por, no máximo, 15 minutos. Após o uso ou expiração, o token é fisicamente excluído do banco de dados (<em>Hard Delete</em>).</li>
+        </ul>
+
+        <h2>6. Compartilhamento e Transferência Internacional de Dados</h2>
+        <p>A privacidade é nosso pilar comercial. <strong>O QuantoVaiDar? garante categoricamente que NÃO vende, aluga, troca, cede ou monetiza dados pessoais ou listas de clientes com terceiros, parceiros comerciais ou empresas de publicidade.</strong></p>
+        <p>O compartilhamento de dados ocorre de forma estritamente técnica, apenas com provedores de infraestrutura que atuam como Operadores (processadores) em nosso nome, sujeitos a acordos de confidencialidade rigorosos, sendo eles:</p>
+        <ul>
+            <li>Provedores de hospedagem de servidores e banco de dados (ex: AWS, Hostinger, DigitalOcean).</li>
+            <li>Serviços de SMTP (Hostinger) exclusivamente para o roteamento do envio de e-mails de segurança (tokens de acesso).</li>
+        </ul>
+        <p>Como os servidores destes provedores podem estar localizados fora do território brasileiro, o Usuário concorda com a Transferência Internacional de Dados, sendo garantido que esses provedores cumprem legislações de proteção de dados com grau de adequação equivalente à LGPD.</p>
+
+        <h2>7. Retenção e Exclusão de Dados (Data Deletion)</h2>
+        <p>Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir com as finalidades para as quais foram coletados, ou para cumprimento de obrigações legais.</p>
+        <p>Para cumprir as diretrizes do Google Play e da Apple (Data Deletion Requirement), <strong>oferecemos exclusão automatizada e irreversível</strong>. O Usuário tem o direito de solicitar a exclusão de sua conta a qualquer momento diretamente pela interface do sistema. Nossa arquitetura relacional utiliza a instrução de banco de dados <code>ON DELETE CASCADE</code>. Ao confirmar a exclusão da conta, todos os registros dependentes — incluindo informações de perfil, chaves PIX criptografadas, tokens de sessão e o histórico completo de faturas geradas — são pulverizados dos nossos servidores em tempo real e de forma definitiva, não deixando resíduos lógicos.</p>
+
+        <h2>8. Direitos do Titular (LGPD)</h2>
+        <p>Conforme previsto no Artigo 18 da LGPD, você possui os seguintes direitos relativos aos seus dados:</p>
+        <ul>
+            <li>Confirmação da existência de tratamento.</li>
+            <li>Acesso e download facilitado dos dados e históricos (Exportação de PDFs).</li>
+            <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+            <li>Anonimização, bloqueio ou eliminação de dados desnecessários.</li>
+            <li>Revogação do consentimento e exclusão imediata e definitiva da conta e registros associados.</li>
+        </ul>
+
+        <h2>9. Privacidade de Crianças e Adolescentes</h2>
+        <p>A Plataforma é destinada ao uso profissional e comercial por pessoas físicas e jurídicas plenamente capazes. <strong>Não coletamos intencionalmente dados de menores de 18 (dezoito) anos</strong>. Se identificarmos que um menor de idade criou uma conta, a mesma será bloqueada e seus dados imediatamente excluídos, em observância ao Artigo 14 da LGPD.</p>
+
+        <h2>10. Atualizações desta Política</h2>
+        <p>Reservamo-nos o direito de atualizar esta Política de Privacidade periodicamente para refletir avanços tecnológicos ou mudanças legislativas. Quaisquer alterações materiais serão notificadas de forma proeminente no aplicativo ou enviadas ao endereço de e-mail cadastrado antes de entrarem em vigor.</p>
+
+        <h2>11. Contato e Encarregado de Proteção de Dados (DPO)</h2>
+        <p>Para exercer seus direitos, relatar incidentes de segurança, solicitar exclusão manual de dados ou sanar dúvidas sobre esta Política de Privacidade, entre em contato direto com nosso suporte ou nosso Encarregado de Dados através do canal oficial abaixo:</p>
+        <p>📧 <strong>E-mail: suporte@quantovaidar.com.br</strong></p>
+
+    </article>
+</main>
+
+<footer>
+    <div class="container text-center">
+        <img src="assets/img/quantovaidartittle.png" alt="QuantoVaiDar?" class="footer-title-img mx-auto">
+        <p class="small text-muted mb-0">&copy; 2026 QuantoVaiDar. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

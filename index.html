@@ -13,126 +13,153 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        /* Paleta exata baseada no Web App */
         :root {
             --primary: #4C86D9;
-            --primary-glow: rgba(76, 134, 217, 0.4);
-            --dark: #0f172a;
-            --surface: #ffffff;
-            --background: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --primary-dark: #2c5ba3;
+            --accent: #F59E0B;
+            --bg-app: #F5F7FA; 
+            --surface: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 48px rgba(76, 134, 217, 0.12);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            background-color: var(--background);
+            background-color: var(--bg-app);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, h4, .navbar-brand {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .navbar-glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 15px 0;
+        /* --- FLOATING NAVBAR --- */
+        .navbar-container {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            padding: 0 20px;
+        }
+        .navbar-floating {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 100px;
+            padding: 10px 32px; 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            margin: 0 auto;
+            max-width: 1200px;
             transition: all 0.3s ease;
         }
-        .navbar-brand {
-            font-weight: 900;
-            font-size: 1.6rem;
-            letter-spacing: -0.5px;
-        }
-        .nav-link {
-            font-weight: 500;
-            color: var(--text-main) !important;
-            padding: 8px 16px !important;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-        .nav-link:hover {
-            background: rgba(76, 134, 217, 0.05);
-            color: var(--primary) !important;
+        
+        .navbar-brand-img {
+            height: 42px;
+            width: auto;
+            display: block;
         }
 
-        .btn-access {
-            background: linear-gradient(135deg, #4C86D9, #3b82f6);
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-muted) !important;
+            padding: 8px 20px !important;
+            border-radius: 100px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .nav-link:hover {
+            color: var(--text-main) !important;
+            background: rgba(0,0,0,0.03);
+        }
+
+        /* --- BOTÃO PRIMÁRIO (CTA) --- */
+        .btn-premium {
+            background: var(--primary);
             color: white !important;
-            padding: 10px 28px;
-            border-radius: 100px; 
+            padding: 12px 32px;
+            border-radius: 100px;
             font-weight: 700;
             font-family: 'Plus Jakarta Sans', sans-serif;
             letter-spacing: 0.5px;
             border: none;
-            box-shadow: 0 8px 20px var(--primary-glow), inset 0 2px 0 rgba(255,255,255,0.2);
+            box-shadow: 0 8px 20px rgba(76, 134, 217, 0.3);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
-        .btn-access:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px var(--primary-glow), inset 0 2px 0 rgba(255,255,255,0.2);
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            background: var(--primary-dark);
+            box-shadow: 0 12px 28px rgba(76, 134, 217, 0.4);
         }
-        .btn-access i {
+        .btn-premium i {
             transition: transform 0.3s ease;
         }
-        .btn-access:hover i {
+        .btn-premium:hover i {
             transform: translateX(4px);
         }
 
+        /* --- HERO SECTION --- */
         .hero {
-            padding: 140px 0 80px;
+            padding: 180px 0 100px;
             position: relative;
         }
-        .hero-blob {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 10%;
+            top: -20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(76,134,217,0.15) 0%, rgba(255,255,255,0) 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(76, 134, 217, 0.08) 0%, rgba(245, 247, 250, 0) 70%);
             z-index: -1;
             border-radius: 50%;
-            animation: pulse-blob 8s infinite alternate;
-        }
-        @keyframes pulse-blob {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.1); }
         }
 
-        .badge-premium {
-            background: rgba(76, 134, 217, 0.1);
+        .badge-update {
+            background: var(--surface);
             color: var(--primary);
-            border: 1px solid rgba(76, 134, 217, 0.2);
-            padding: 8px 16px;
+            border: 1px solid rgba(76, 134, 217, 0.15);
+            padding: 8px 20px;
             border-radius: 100px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-title-img {
+            width: 480px; 
+            max-width: 95%; 
+            height: auto;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
             line-height: 1.05;
-            letter-spacing: -2.5px;
+            letter-spacing: -2px;
             margin-bottom: 1.5rem;
-            color: var(--dark);
+            color: var(--text-main);
         }
-        .text-gradient {
-            background: linear-gradient(to right, #4C86D9, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine {
-            to { background-position: 200% center; }
+        .text-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
         }
 
         .hero-subtitle {
@@ -140,43 +167,32 @@
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 2.5rem;
-            max-width: 500px;
+            max-width: 540px;
+            font-weight: 400;
         }
 
+        /* --- MOCKUP FLUTUANTE --- */
         .mockup-wrapper {
             position: relative;
             z-index: 2;
+            perspective: 1000px;
         }
         .app-mockup {
-            max-width: 320px;
-            filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.25)); 
-            
-            animation: float 6s ease-in-out infinite;
+            max-width: 340px;
+            filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.15));
+            animation: float-smooth 6s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
-        .mockup-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 250px;
-            height: 500px;
-            background: var(--primary);
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: -1;
-            border-radius: 50px;
+        @keyframes float-smooth {
+            0% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); }
+            50% { transform: translateY(-20px) rotateX(0deg) rotateY(0deg); }
+            100% { transform: translateY(0px) rotateX(2deg) rotateY(-2deg); }
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .bento-section {
-            padding: 100px 0;
-            background: white;
-            border-top: 1px solid rgba(0,0,0,0.05);
+        /* --- BENTO GRID FUNCIONALIDADES --- */
+        .features-section {
+            padding: 80px 0;
+            position: relative;
         }
         .bento-grid {
             display: grid;
@@ -185,21 +201,28 @@
             gap: 24px;
         }
         .bento-card {
-            background: var(--background);
-            border-radius: 32px;
+            background: var(--surface);
+            border-radius: 24px; 
             padding: 40px;
-            position: relative;
-            overflow: hidden;
             border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: var(--shadow-soft);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .bento-card:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            border-color: rgba(76, 134, 217, 0.2);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(76, 134, 217, 0.1);
         }
         .bento-wide { grid-column: span 2; }
-        .bento-tall { grid-row: span 2; }
+        
+        .bento-featured {
+            background: linear-gradient(135deg, #4C86D9, #1E3A8A);
+            color: white;
+        }
+        .bento-featured .text-muted { color: rgba(255,255,255,0.8) !important; }
 
         .bento-icon {
             width: 56px;
@@ -215,160 +238,272 @@
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: #94a3b8;
-            padding: 80px 0 40px;
+        /* --- VANTAGENS SECTION --- */
+        .vantagens-section {
+            padding: 120px 0;
+            background-color: var(--surface); 
+            border-top: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
-        .footer-logo {
-            color: white;
-            font-weight: 900;
-            font-size: 1.8rem;
+        .vantagem-card {
+            background: var(--bg-app);
+            padding: 40px 30px;
+            border-radius: 24px;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .vantagem-card:hover {
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            transform: translateY(-8px);
+            border-color: rgba(76, 134, 217, 0.15);
+        }
+        .vantagem-icon-large {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* --- BOTTOM CTA --- */
+        .cta-section {
+            background: var(--bg-app);
+            padding: 100px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--surface);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-title-img {
+            width: 160px; 
+            height: auto;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .footer-link {
+            color: var(--text-muted);
             text-decoration: none;
-            letter-spacing: -1px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+        .footer-link:hover {
+            color: var(--primary);
         }
 
         /* Responsividade */
         @media (max-width: 991px) {
-            .hero-title { font-size: 3rem; letter-spacing: -1.5px; }
-            .bento-wide, .bento-tall { grid-column: span 1; grid-row: span 1; }
+            .hero { padding: 140px 0 60px; text-align: center; }
+            .hero-title { font-size: 3.2rem; }
+            .hero-subtitle { margin: 0 auto 2.5rem; }
+            .bento-wide { grid-column: span 1; }
             .bento-grid { grid-template-columns: 1fr; }
+            .navbar-floating { border-radius: 20px; padding: 12px 20px; }
             .navbar-collapse {
                 background: white;
                 padding: 20px;
                 border-radius: 16px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
                 margin-top: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
-            .btn-access { width: 100%; text-align: center; margin-top: 15px; }
+            .nav-link { text-align: center; }
+            
+            .hero-title-img, .footer-title-img {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-glass">
-    <div class="container">
-        <a class="navbar-brand text-primary" href="#">QuantoVaiDar<span style="color: #f59e0b;">?</span></a>
-        
-        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <i class="bi bi-grid-3x3-gap-fill fs-3 text-primary"></i>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto align-items-center">
-            </ul>
-            <ul class="navbar-nav align-items-center">
-                <li class="nav-item">
-                    <a class="btn btn-access d-flex align-items-center" href="https://app.quantovaidar.com.br">
+<div class="navbar-container">
+    <nav class="navbar navbar-expand-lg navbar-floating">
+        <div class="container-fluid">
+            <a class="navbar-brand p-0" href="#">
+                <img src="assets/img/quantovaidartittle.png" alt="QuantoVaiDar?" class="navbar-brand-img">
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-1 text-primary"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#funcionalidades">O que fazemos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vantagens">Vantagens</a></li>
+                </ul>
+                <div class="d-flex mt-3 mt-lg-0">
+                    <a class="btn-premium w-100" href="https://app.quantovaidar.com.br">
                         ACESSAR APP <i class="bi bi-arrow-right-short fs-4 ms-1"></i>
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
 
 <header class="hero">
-    <div class="hero-blob"></div>
     <div class="container">
         <div class="row align-items-center justify-content-between">
-            <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0 z-1">
-                <div class="mb-4">
-                    <span class="badge-premium d-inline-flex align-items-center">
-                        <span class="spinner-grow spinner-grow-sm text-primary me-2" style="width: 10px; height: 10px;" role="status"></span>
-                        Web App Oficial Lançado
-                    </span>
+            <div class="col-lg-6 mb-5 mb-lg-0 z-1">
+                <div class="badge-update">
+                    <span class="spinner-grow spinner-grow-sm text-success me-2" role="status"></span>
+                    Sistema Web Liberado
                 </div>
+                
+                <img src="assets/img/quantovaidartittle.png" alt="QuantoVaiDar?" class="hero-title-img">
+
                 <h1 class="hero-title">
-                    Seus recibos <br>
-                    <span class="text-gradient">profissionais</span> <br>
-                    em segundos.
+                    Cobrança profissional, <br>
+                    em alguns <span class="text-highlight">cliques.</span>
                 </h1>
-                <p class="hero-subtitle mx-auto mx-lg-0">
-                    Gere PDFs elegantes, crie QR Codes de PIX automáticos e faça sua cobrança com a ferramenta definitiva para empreendedores.
+                <p class="hero-subtitle">
+                    Gere recibos em PDF, inclua QR Codes de PIX e gerencie suas vendas com uma ferramenta limpa e eficiente.
                 </p>
-                <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mt-4">
-                    <a href="https://app.quantovaidar.com.br" class="btn btn-dark btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center justify-content-center" style="box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-                        <i class="bi bi-laptop me-2 fs-5"></i> Usar no Navegador
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <a href="https://app.quantovaidar.com.br" class="btn-premium btn-lg">
+                        Começar Gratuitamente
+                    </a>
+                    <a href="#funcionalidades" class="btn btn-link text-muted fw-bold text-decoration-none d-flex align-items-center justify-content-center">
+                        Ver como funciona
                     </a>
                 </div>
             </div>
             
-            <div class="col-lg-5 text-center">
+            <div class="col-lg-5 text-center d-none d-lg-block">
                 <div class="mockup-wrapper">
-                    <div class="mockup-glow"></div>
-                    <img src="assets/img/Login-Left.png" alt="App Preview" class="app-mockup img-fluid">
+                    <img src="assets/img/Login-Left.png" alt="Aplicativo QuantoVaiDar" class="app-mockup img-fluid">
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<section id="features" class="bento-section">
+<section id="funcionalidades" class="features-section">
     <div class="container">
-        <div class="text-center mb-5 pb-3">
-            <h2 class="display-4 fw-900" style="letter-spacing: -1.5px;">Tudo que <span class="text-primary">você precisa.</span></h2>
-            <p class="text-muted fs-5">Organizado de um jeito que você nunca viu.</p>
+        <div class="text-center mt-5 mb-5 pb-3">
+            <h2 class="hero-title" style="font-size: 3rem;">Tudo no <span class="text-highlight">seu controle.</span></h2>
+            <p class="text-muted fs-5">Feito para o autônomo que não tem tempo a perder.</p>
         </div>
         
         <div class="bento-grid">
+            <div class="bento-card bento-wide bento-featured">
+                <div>
+                    <div class="bento-icon" style="background: rgba(255,255,255,0.15);">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </div>
+                    <h3 class="text-white">PDF Instantâneo</h3>
+                    <p class="text-muted fs-5">Seus clientes vão se impressionar. Gere documentos padronizados com seus dados e envie direto pelo WhatsApp em menos de 10 segundos.</p>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div>
+                    <div class="bento-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent);">
+                        <i class="bi bi-qr-code-scan"></i>
+                    </div>
+                    <h3>PIX Embutido</h3>
+                    <p class="text-muted">Esqueça copiar e colar chaves avulsas. O recibo já sai com seu QR Code e código Copia-e-Cola.</p>
+                </div>
+            </div>
+            <div class="bento-card">
+                <div>
+                    <div class="bento-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                    </div>
+                    <h3>Salvo em Nuvem</h3>
+                    <p class="text-muted">Trocou de celular ou PC? Acesse seu histórico completo de emissões de qualquer lugar do mundo.</p>
+                </div>
+            </div>
             <div class="bento-card bento-wide">
-                <div class="bento-icon" style="background: #e0e7ff; color: #4f46e5;">
-                    <i class="bi bi-lightning-charge-fill"></i>
+                <div class="row align-items-center h-100">
+                    <div class="col-md-7">
+                        <div class="bento-icon" style="background: var(--bg-app); color: var(--text-main);">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3>Experiência em qualquer lugar</h3>
+                        <p class="text-muted fs-5">Use o navegador do computador no escritório ou o app no celular. A interface se adapta perfeitamente a você.</p>
+                    </div>
+                    <div class="col-md-5 text-center mt-4 mt-md-0 d-none d-md-block">
+                        <i class="bi bi-phone text-primary" style="font-size: 6rem; opacity: 0.2;"></i>
+                    </div>
                 </div>
-                <h3>Criação Instantânea</h3>
-                <p class="text-muted fs-5">Não perca mais tempo com blocos de papel. Crie e envie recibos em PDF com design premium diretamente pelo WhatsApp do cliente em menos de 30 segundos.</p>
-            </div>
-            
-            <div class="bento-card">
-                <div class="bento-icon" style="background: #fef3c7; color: #d97706;">
-                    <i class="bi bi-qr-code-scan"></i>
-                </div>
-                <h3>PIX Dinâmico</h3>
-                <p class="text-muted">Chega de mandar a chave separada. Seu recibo já sai com QR Code e Copia-e-Cola embutidos.</p>
-            </div>
-            
-            <div class="bento-card">
-                <div class="bento-icon" style="background: #dcfce7; color: #15803d;">
-                    <i class="bi bi-cloud-check-fill"></i>
-                </div>
-                <h3>Nuvem Segura</h3>
-                <p class="text-muted">Seu histórico de vendas sincronizado e protegido em servidores de alta segurança.</p>
-            </div>
-
-            <div class="bento-card bento-wide" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white;">
-                <div class="bento-icon" style="background: rgba(255,255,255,0.1); color: #60a5fa;">
-                    <i class="bi bi-phone-fill"></i>
-                </div>
-                <h3 style="color: white;">Design Responsivo</h3>
-                <p class="text-white-50 fs-5">Criado para multi-plataformas. Interface limpa e modo escuro nativo para garantir que você trabalhe de forma confortável onde estiver.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="vantagens" class="vantagens-section text-center">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-lg-8">
+                <h2 class="hero-title" style="font-size: 2.8rem;">Por que escolher o <span class="text-highlight">QuantoVaiDar?</span></h2>
+                <p class="text-muted fs-5">Desenvolvemos cada detalhe pensando em facilitar a rotina de quem trabalha por conta própria.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="vantagem-card">
+                    <i class="bi bi-layout-wtf text-primary vantagem-icon-large"></i>
+                    <h4 class="fw-bold fs-4 mb-3">Interface limpa e sem distrações</h4>
+                    <p class="text-muted mb-0">Um painel direto ao ponto. Sem menus confusos. Apenas o que você precisa para gerar suas cobranças.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="vantagem-card">
+                    <i class="bi bi-percent text-success vantagem-icon-large"></i>
+                    <h4 class="fw-bold fs-4 mb-3">Zero taxas sobre as suas transações</h4>
+                    <p class="text-muted mb-0">Nós não somos intermediadores de pagamento. O PIX gerado no recibo cai diretamente na sua conta, sem descontar 1 centavo sequer.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="cta-section text-center">
+    <div class="container">
+        <h2 class="hero-title" style="font-size: 2.5rem;">Pronto para evoluir seu negócio?</h2>
+        <p class="text-muted fs-5 mb-5 max-w-500 mx-auto">Crie sua conta gratuitamente agora mesmo.</p>
+        <a href="https://app.quantovaidar.com.br" class="btn-premium btn-lg">
+            Acessar o App <i class="bi bi-arrow-up-right ms-2"></i>
+        </a>
     </div>
 </section>
 
 <footer>
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-                <a class="footer-logo mb-2" href="#">QuantoVaiDar<span style="color: #f59e0b;">?</span></a>
-                <p class="mb-0">Profissionalize sua cobrança.</p>
+            
+            <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                <a href="#">
+                    <img src="assets/img/quantovaidartittle.png" alt="QuantoVaiDar?" class="footer-title-img mb-0" style="width: 140px;">
+                </a>
             </div>
-            <div class="col-md-6 text-center text-md-end">
-                <div class="d-flex justify-content-center justify-content-md-end gap-3 mb-3">
-                    <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="text-white fs-4"><i class="bi bi-github"></i></a>
-                </div>
-                <p class="small text-white-50 mb-0">&copy; 2026 QuantoVaiDar. <br> Desenvolvido por Nicolas Kennedy.</p>
+
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+                <a href="privacidade.html" class="footer-link">Política de Privacidade</a>
             </div>
+
+            <div class="col-md-4 text-center text-md-end">
+                <p class="small text-muted mb-0">
+                    &copy; 2026 QuantoVaiDar? <br> 
+                    Desenvolvido por Nicolas Kennedy.
+                </p>
+            </div>
+
         </div>
     </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
